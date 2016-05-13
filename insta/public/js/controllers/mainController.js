@@ -8,4 +8,13 @@ angular.module('pic')
       console.log(res);
     });
 
+    $scope.create = function(collection){
+      console.log(collection);
+      $http.post('/collections', collection).success(function(res){
+        $scope.res = res;
+        console.log(res);
+      });
+    };
+
+
   }]);

@@ -25,6 +25,14 @@
 
     {{ test }}<br>
     {{ res }}    
+
+    <div>
+        Tag: <input type="text" ng-model="collection.tag"><br/>
+        Start Date: <input type="text" ng-model="collection.min_date"><br/>
+        End Date: <input type="text" ng-model="collection.max_date"><br/>
+        <button ng-click="create(collection)">Submit</button>
+    </div>
+
     <!-- app scripts -->
     <script src="js/app.js"></script>
     <script src="js/controllers/mainController.js"></script>
