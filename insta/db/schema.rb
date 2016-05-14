@@ -11,14 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160513194011) do
+ActiveRecord::Schema.define(version: 20160513223601) do
 
   create_table "collections", force: :cascade do |t|
     t.string   "tag"
-    t.string   "min_date"
-    t.string   "max_date"
+    t.datetime "min_date"
+    t.datetime "max_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "tag_time"
+    t.string   "tag"
+    t.string   "link"
+    t.string   "username"
+    t.string   "user_pic"
+    t.string   "media"
+    t.string   "media_thumb"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
