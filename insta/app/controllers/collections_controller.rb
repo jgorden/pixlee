@@ -75,10 +75,13 @@ class CollectionsController < ApplicationController
 
       a['data'].each do |post|
         if post['caption']['created_time'].to_i <= collection.max_date.to_i && post['caption']['created_time'].to_i >= collection.min_date.to_i
-          # collection.posts.create()
+          type = post['type'] + 's'
+          collection.posts.create(tag_time: post['caption']['created_time'], tag: collection.tag, 
+                                  link: post['link'], username: post['user']['username'], user_pic: post['user']['profile_picture'],
+                                  media: post[type]['standard_resolution'], media_thumb: post['images']['thumbnail'])
           puts 'MADE A POST!!!!!'
         elsif post['caption']['created_time'].to_i < collection.min_date.to_i
-            return
+          return
         end
 
         # puts post['caption']['created_time']

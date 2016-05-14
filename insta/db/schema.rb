@@ -29,8 +29,9 @@ ActiveRecord::Schema.define(version: 20160513223601) do
     t.string   "user_pic"
     t.string   "media"
     t.string   "media_thumb"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "collection_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end

@@ -8,6 +8,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :user_pic
       t.string :media
       t.string :media_thumb
+      t.references :collection
 
       t.timestamps null: false
     end
