@@ -6,15 +6,14 @@ class CollectionsController < ApplicationController
     end
 
     def create
-      col = Collection.create(collection_params)
-      response = call("https://api.instagram.com/v1/tags/#{params[:tag]}/media/recent?min_tag_id=#{}&max_tag_id=#{}&access_token=174180622.1677ed0.f86a491bf33e4f41bad53c20f480a7a0")
-      relevant?(response, col)
-      render json: col.posts
+      collection = Collection.create(collection_params)
+      response = call("https://api.instagram.com/v1/tags/#{params[:tag]}/media/recent?access_token=174180622.1677ed0.f86a491bf33e4f41bad53c20f480a7a0")
+      relevant?(response, collection)
+      render json: collection.posts
     end
 
     def show
       collection = Collection.find(params[:id]).posts
-      p 'yessss'
       render json: collection
     end
 
@@ -37,7 +36,6 @@ class CollectionsController < ApplicationController
     def relevant?(response, collection)
       body = JSON.parse(response.body)
       if body['data'][-1]['caption']['created_time'].to_i > collection.max_date.to_i
-        p body['data'][-1]['caption']['created_time'].to_i
         new_res = call(body['pagination']['next_url'])
         relevant?(new_res, collection)
         return
