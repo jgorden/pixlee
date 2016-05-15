@@ -13,8 +13,9 @@ class CollectionsController < ApplicationController
     end
 
     def show
-      
-      render json: response.body
+      collection = Collection.find(params[:id]).posts
+      p 'yessss'
+      render json: collection
     end
 
     private
@@ -50,7 +51,7 @@ class CollectionsController < ApplicationController
           type = post['type'] + 's'
           collection.posts.create(tag_time: post['caption']['created_time'], tag: collection.tag, 
                                   link: post['link'], username: post['user']['username'], user_pic: post['user']['profile_picture'],
-                                  media: post[type]['standard_resolution'], media_thumb: post['images']['thumbnail'])
+                                  media: post[type]['standard_resolution']['url'], media_thumb: post['images']['thumbnail']['url'])
         elsif post['caption']['created_time'].to_i < collection.min_date.to_i
           return
         end
