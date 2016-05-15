@@ -1,5 +1,7 @@
 angular.module('pic', [
     'ngRoute',
+    'ui.bootstrap',
+    'ngAnimate'
   ])
   .config(function ($routeProvider) {
     $routeProvider

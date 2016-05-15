@@ -7,6 +7,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :username
       t.string :user_pic
       t.string :media
+      t.string :media_type
       t.string :media_thumb
       t.references :collection
 

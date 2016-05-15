@@ -23,5 +23,16 @@ angular.module('pic')
       });
     };
 
+    $scope.expand = function(id){
+      if($('#' + id).hasClass('col-xs-12')){ 
+        $('#' + id).removeClass('col-xs-12');
+        $('#' + id).addClass('col-xs-2');
+       } else{
+        $('.cell').removeClass('col-xs-12');
+        $('.cell').addClass('col-xs-2');
+        $('#' + id).removeClass('col-xs-2');
+        $('#' + id).addClass('col-xs-12');
+      }
+    }
 
   }]);

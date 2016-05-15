@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160513223601) do
     t.string   "username"
     t.string   "user_pic"
     t.string   "media"
+    t.string   "media_type"
     t.string   "media_thumb"
     t.integer  "collection_id"
     t.datetime "created_at",    null: false
