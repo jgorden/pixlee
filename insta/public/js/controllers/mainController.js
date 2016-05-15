@@ -17,7 +17,6 @@ angular.module('pic')
     $scope.selection = null;
 
     $scope.create = function(collection){
-      console.log(collection);
       $http.post('/collections', collection).success(function(res){
         $scope.posts = res;
         console.log(res);

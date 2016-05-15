@@ -7,7 +7,7 @@ class CollectionsController < ApplicationController
 
     def create
       col = Collection.create(collection_params)
-      response = call("https://api.instagram.com/v1/tags/jessehahn/media/recent?min_tag_id=#{}&max_tag_id=#{}&access_token=174180622.1677ed0.f86a491bf33e4f41bad53c20f480a7a0")
+      response = call("https://api.instagram.com/v1/tags/#{params[:tag]}/media/recent?min_tag_id=#{}&max_tag_id=#{}&access_token=174180622.1677ed0.f86a491bf33e4f41bad53c20f480a7a0")
       relevant?(response, col)
       render json: col.posts
     end
