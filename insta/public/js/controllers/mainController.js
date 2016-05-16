@@ -3,17 +3,21 @@ angular.module('pic')
 
     $scope.test = 'test';
 
-    $http.get('/collections').success(function(res){
-      $scope.collections = res;
-      console.log(res);
 
-    });
+    var getCollections = function(){
+      $http.get('/collections').success(function(res){
+        $scope.collections = res;
+        console.log(res);
+
+      });
+    };
+    getCollections();
 
     $scope.fetchPosts = function(id){
       $http.get('/collections/' + id).success(function(res){
         $scope.posts = res;
       })
-    }
+    };
     $scope.selection = null;
 
     $scope.create = function(collection){
@@ -21,6 +25,7 @@ angular.module('pic')
         $scope.posts = res;
         console.log(res);
       });
+      getCollections();
     };
 
     $scope.expand = function(id){
