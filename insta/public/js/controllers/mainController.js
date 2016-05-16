@@ -25,6 +25,7 @@ angular.module('pic')
 
     $scope.expand = function(id){
       if($('#' + id).hasClass('col-xs-12')){ 
+        $scope.posts[id].open = false;
         $('#' + id).removeClass('col-xs-12');
         $('#' + id).addClass('col-xs-2');
        } else{
