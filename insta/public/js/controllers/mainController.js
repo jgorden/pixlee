@@ -49,6 +49,7 @@ angular.module('pic')
         $('.cell').addClass('col-xs-2');
         $('#' + id).removeClass('col-xs-2');
         $('#' + id).addClass('col-xs-12');
+        $scope.posts[id].open = true;
       }
     }
 
