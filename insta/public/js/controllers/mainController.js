@@ -1,14 +1,9 @@
 angular.module('pic')
   .controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
 
-    $scope.test = 'test';
-
-
     var getCollections = function(){
       $http.get('/collections').success(function(res){
         $scope.collections = res;
-        console.log(res);
-
       });
     }
     getCollections();
@@ -25,18 +20,14 @@ angular.module('pic')
     }
 
     $scope.morePosts = function(){
-      console.log('clicked');
       for ($scope.count; $scope.count < $scope.allPosts.length; $scope.count++){
-        console.log('in it');
-        console.log($scope.count);
         if($scope.count != $scope.start && $scope.count % 18 == 0){
           $scope.start = $scope.count;
           break
         } else {
-          $scope.posts.push($scope.allPosts[$scope.count])
+          $scope.posts.push($scope.allPosts[$scope.count]);
         }
       }
-      console.log('we out');
       if ($scope.count == $scope.allPosts.length){ $scope.done = true; }
     }
     $scope.selection = null;
@@ -44,7 +35,6 @@ angular.module('pic')
     $scope.create = function(collection){
       $http.post('/collections', collection).success(function(res){
         $scope.posts = res;
-        console.log(res);
       });
       getCollections();
     }
