@@ -26,26 +26,29 @@
 
   <body ng-app="pic" ng-controller='MainCtrl'>
     <div class="container-fluid">
+
       <div class="row">
         <div class="col-xs-12">
-          <div class="col-xs-6">
+          <div class="col-xs-4 col-xs-offset-2">
             Past Searches: 
-            <select ng-options="selection.tag + ', ' + selection.min_date.substring(0, 10) + ', ' + selection.max_date.substring(0, 10) for selection in collections" ng-model="selection">
+            <select  class="form-control" ng-options="selection.tag + ', ' + selection.min_date.substring(0, 10) + ', ' + selection.max_date.substring(0, 10) for selection in collections" ng-model="selection">
               <option>Tag, Start Date, End Date</option>
             </select>
             <button ng-click="fetchPosts(selection.id)">Select</button>
           </div>
-          <div class="col-xs-6">
-            Tag: <input type="text" ng-model="collection.tag"> 
-            Start Date: <input type="date" ng-model="collection.min_date"> 
-            End Date: <input type="date" ng-model="collection.max_date"> 
+          <div class="col-xs-4">
+            Tag: <input type="text" class="form-control" ng-model="collection.tag"> <br>
+            Start Date: <input type="date" class="form-control" placeholder="mm/dd/yyyy" ng-model="collection.min_date"> <br>
+            End Date: <input type="date" class="form-control" placeholder="mm/dd/yyyy" ng-model="collection.max_date"> <br>
             <button ng-click="create(collection)">Submit</button>
           </div>
         </div>
       </div>
 
-      <div ng-hide="posts">
-        Enter a tag and date range to search for pictures, or select a past search from the drop down menu
+      <div class="col-xs-6 col-xs-offset-3 text-center" ng-hide="posts">
+        <h2>
+          Enter a tag and date range to search for pictures, or select a past search from the drop down menu.
+        </h2>
       </div>
       <div ng-show="posts">
         <uib-accordion class="col-xs-12">
