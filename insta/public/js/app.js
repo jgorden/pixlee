@@ -1,7 +1,8 @@
 angular.module('pic', [
     'ngRoute',
     'ui.bootstrap',
-    'ngAnimate'
+    'ngAnimate',
+    'ngSanitize'
   ])
   .config(function ($routeProvider) {
     $routeProvider

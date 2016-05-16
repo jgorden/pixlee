@@ -15,6 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.2/ui-bootstrap-tpls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.4.5/angular-sanitize.js"></script>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -40,7 +41,7 @@
           <uib-accordion-heading>
             <img ng-src="{{ post.media_thumb }}">
           </uib-accordion-heading>
-          {{ post.username }} {{ post.link }} {{  }}
+          <div ng-bind-html="post.media | media"></div>
         </uib-accordion-group>
       </uib-accordion>
       
@@ -59,5 +60,6 @@
     <!-- app scripts -->
     <script src="js/app.js"></script>
     <script src="js/controllers/mainController.js"></script>
+    <script src="js/filters/media.js"></script>
   </body>
 </html>
