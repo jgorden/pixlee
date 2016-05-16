@@ -4,7 +4,9 @@ angular.module('pic', [
     'ngAnimate',
     'ngSanitize'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $compileProvider) {
+    $compileProvider.debugInfoEnabled(false);
+    
     $routeProvider
       .when('/', {
         templateUrl: '../index.html',
