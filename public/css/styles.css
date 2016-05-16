@@ -1,0 +1,11 @@
+.username {
+  display: inline;
+}
+
+.posts {
+  margin-top: 3em;
+}
+
+.load-button {
+  margin: 3em;
+}
