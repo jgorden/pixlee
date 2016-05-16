@@ -41,7 +41,10 @@
           <uib-accordion-heading>
             <img ng-src="{{ post.media_thumb }}">
           </uib-accordion-heading>
-          <div ng-bind-html="post.media | media"></div>
+          <div ng-bind-html="post.media | media"></div><br>
+          <img ng-src="{{ post.user_pic }}">
+          {{ post.username }}
+          <a href="{{ post.link }}">link</a>
         </uib-accordion-group>
       </uib-accordion>
       
