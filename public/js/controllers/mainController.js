@@ -8,13 +8,17 @@ angular.module('pic')
     }
     getCollections();
 
+    var resetPostVars = function(){
+      $scope.count = 0;
+      $scope.start = 0;
+      $scope.done = false;
+      $scope.posts = [];
+    }
+
     $scope.fetchPosts = function(id){
       $http.get('/collections/' + id).success(function(res){
         $scope.allPosts = res;
-        $scope.count = 0;
-        $scope.start = 0;
-        $scope.done = false;
-        $scope.posts = [];
+        resetPostVars();
         $scope.morePosts();
       });
     }
@@ -35,10 +39,7 @@ angular.module('pic')
     $scope.create = function(collection){
       $http.post('/collections', collection).success(function(res){
         $scope.allPosts = res;
-        $scope.count = 0;
-        $scope.start = 0;
-        $scope.done = false;
-        $scope.posts = [];
+        resetPostVars();
         $scope.morePosts();
       });
       getCollections();
