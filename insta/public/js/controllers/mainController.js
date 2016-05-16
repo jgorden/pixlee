@@ -10,14 +10,35 @@ angular.module('pic')
         console.log(res);
 
       });
-    };
+    }
     getCollections();
 
     $scope.fetchPosts = function(id){
       $http.get('/collections/' + id).success(function(res){
-        $scope.posts = res;
-      })
-    };
+        $scope.allPosts = res;
+        $scope.count = 0;
+        $scope.start = 0;
+        $scope.done = false;
+        $scope.posts = [];
+        $scope.morePosts();
+      });
+    }
+
+    $scope.morePosts = function(){
+      console.log('clicked');
+      for ($scope.count; $scope.count < $scope.allPosts.length; $scope.count++){
+        console.log('in it');
+        console.log($scope.count);
+        if($scope.count != $scope.start && $scope.count % 18 == 0){
+          $scope.start = $scope.count;
+          break
+        } else {
+          $scope.posts.push($scope.allPosts[$scope.count])
+        }
+      }
+      console.log('we out');
+      if ($scope.count == $scope.allPosts.length){ $scope.done = true; }
+    }
     $scope.selection = null;
 
     $scope.create = function(collection){
@@ -26,7 +47,7 @@ angular.module('pic')
         console.log(res);
       });
       getCollections();
-    };
+    }
 
     $scope.expand = function(id){
       if($('#' + id).hasClass('col-xs-12')){ 
