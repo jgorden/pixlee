@@ -34,7 +34,12 @@ angular.module('pic')
 
     $scope.create = function(collection){
       $http.post('/collections', collection).success(function(res){
-        $scope.posts = res;
+        $scope.allPosts = res;
+        $scope.count = 0;
+        $scope.start = 0;
+        $scope.done = false;
+        $scope.posts = [];
+        $scope.morePosts();
       });
       getCollections();
     }
