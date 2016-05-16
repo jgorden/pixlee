@@ -59,9 +59,9 @@
             <a href="{{ post.link }}">link</a>
           </uib-accordion-group>
         </uib-accordion>
+        <button ng-hide="done" ng-click="morePosts()">Load More</button>
       </div>
       <br>
-      <button ng-hide="done" ng-click="morePosts()">Load More</button>
       {{ res }}    
 
     </div>
